@@ -4,3 +4,21 @@
   padding: 0;
   font-family: 'PT Sans', sans-serif;
 }
+
+.home, 
+.about, 
+.booking-group, 
+.booking-individual, 
+.contact-email, 
+.contact-volunteer, 
+.guest-comments, 
+.login, 
+.tours-group, 
+.tours-heritage, 
+.tours-mountain {
+  display: flex;
+  height: 90vh;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}

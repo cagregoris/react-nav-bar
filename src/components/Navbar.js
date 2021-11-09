@@ -5,29 +5,17 @@ import './Navbar.css';
 
 // Dropdowns
 import DropdownTours from './DropdownTours';
+import DropdownBookings from './DropdownBookings';
+import DropdownContact from './DropdownContact';
 
 function Navbar() {
   const [click, setClick] = useState(false);
-  const [dropdown, setDropdown]= useState(false)
+  const [dropdownT, setDropdownT]= useState(false)
+  const [dropdownB, setDropdownB]= useState(false)
+  const [dropdownC, setDropdownC]= useState(false)
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
-
-  const onMouseEnter = () => {
-    if(window.innerWidth < 960) {
-      setDropdown(false)
-    } else {
-      setDropdown(true)
-    }
-  };
-
-  const onMouseLeave = () => {
-    if(window.innerWidth < 960) {
-      setDropdown(false)
-    } else {
-      setDropdown(false)
-    }
-  }
 
   return (
     <>
@@ -50,23 +38,61 @@ function Navbar() {
             </Link>
           </li>
           <li className="nav-item"
-            onMouseEnter={onMouseEnter}
-            onMouseLeave={onMouseLeave}
+          onMouseEnter={() => {if(window.innerWidth < 960) {
+            setDropdownT(false)
+            } else {
+              setDropdownT(true)
+            } 
+          }}
+          onMouseLeave={() => {if(window.innerWidth < 960) {
+            setDropdownT(false)
+            } else {
+            setDropdownT(false)
+            }
+          }}
           >
             <Link to='/tours' className='nav-links' onClick={closeMobileMenu}>
               Tours <i className='fas fa-caret-down' />
-            </Link>
-            {dropdown && <DropdownTours />}
+            </Link >
+            {dropdownT && <DropdownTours />}
           </li>
-          <li className="nav-item">
+          <li className="nav-item"
+          onMouseEnter={() => {if(window.innerWidth < 960) {
+            setDropdownB(false)
+            } else {
+              setDropdownB(true)
+            } 
+          }}
+          onMouseLeave={() => {if(window.innerWidth < 960) {
+            setDropdownB(false)
+            } else {
+            setDropdownB(false)
+            }
+          }}
+          >
             <Link to='/booking' className='nav-links' onClick={closeMobileMenu}>
               Booking <i className='fas fa-caret-down' />
             </Link>
+            {dropdownB && <DropdownBookings />}
           </li>
-          <li className="nav-item">
+          <li className="nav-item"
+          onMouseEnter={() => {if(window.innerWidth < 960) {
+            setDropdownC(false)
+            } else {
+              setDropdownC(true)
+            } 
+          }}
+          onMouseLeave={() => {if(window.innerWidth < 960) {
+            setDropdownC(false)
+            } else {
+            setDropdownC(false)
+            }
+          }}
+          >
             <Link to='/contact' className='nav-links' onClick={closeMobileMenu}>
               Contact <i className='fas fa-caret-down' />
             </Link>
+            {dropdownC && <DropdownContact />}
           </li>
           <li className="nav-item">
             <Link to='/guest-comments' className='nav-links' onClick={closeMobileMenu}>
